@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       {listOfPeople.length > 0 ? "Loaded" : "Loading!"}
-      <Input className="color: red" value={value} onChange={setValue} />
+      <Input className="input" value={value} onChange={setValue} />
       {!!value === true ? value : "empty"}
     </>
   );
