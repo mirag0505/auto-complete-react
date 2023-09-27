@@ -1,4 +1,4 @@
-import { HTMLAttributes, forwardRef } from "react";
+import { ChangeEvent, HTMLAttributes, forwardRef, useRef } from "react";
 import "./Select.css";
 import { Input, Options } from "..";
 import { ListOfPeople } from "../../service";
@@ -12,20 +12,20 @@ type Props = {
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Select = forwardRef<HTMLInputElement, Props>(
-  (
-    { className, value, onChange, listOfValue, ...restInputProps },
-    forwardedRef
-  ) => {
-    // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //   onChange(e.target.value);
-    // };
+  ({ value, onChange, listOfValue, ...restInputProps }, forwardedRef) => {
+    // const inputRef = useRef<HTMLInputElement>(null);
+
+    const handleChange = (value: string) => {
+      onChange(value);
+      //   forwardedRef?.current?.focus();
+    };
 
     return (
-      <div className={className}>
+      <div className="select">
         <Input
           ref={forwardedRef}
           value={value}
-          onChange={onChange}
+          onChange={handleChange}
           {...restInputProps}
         />
 

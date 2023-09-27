@@ -1,0 +1,28 @@
+input:focus {
+}
+
+ul {
+  list-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+li {
+  border-bottom: 1px grey solid;
+}
+
+.options {
+  display: none;
+  text-align: left;
+}
+
+input:focus ~ .options {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.select {
+  position: relative;
+}

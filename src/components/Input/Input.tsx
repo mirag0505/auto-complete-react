@@ -8,7 +8,7 @@ type Props = {
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Input = forwardRef<HTMLInputElement, Props>(
-  ({ className, onChange, ...restInputProps }, forwardedRef) => {
+  ({ onChange, ...restInputProps }, forwardedRef) => {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       onChange(e.target.value);
     };
@@ -17,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
       <input
         ref={forwardedRef}
         onChange={handleChange}
-        className={className}
+        className={"input"}
         {...restInputProps}
       />
     );

@@ -7,16 +7,18 @@ type Props = {
   className?: string;
 };
 
-export const Options = ({ className, options }: Props) => {
+export const Options = ({ options }: Props) => {
   // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
   //   onChange(e.target.value);
   // };
 
   return (
-    <ul className={className}>
-      {options.map((val) => (
-        <li key={val.name}>{val.name}</li>
-      ))}
-    </ul>
+    <div className="options">
+      <ul>
+        {options.map((val) => (
+          <li key={val.name}>{val.name}</li>
+        ))}
+      </ul>
+    </div>
   );
 };

@@ -16,16 +16,11 @@ function App() {
 
   return (
     <>
-      {listOfPeople.length > 0 ? "Loaded" : "Loading!"}
+      {listOfPeople.length > 0 ? "Loaded" : "Loading..."}
+      {/* {!!value === true ? value : "empty"} */}
       {listOfPeople.length > 0 && (
-        <Select
-          className="select"
-          value={value}
-          onChange={setValue}
-          listOfValue={listOfPeople}
-        />
+        <Select value={value} onChange={setValue} listOfValue={listOfPeople} />
       )}
-      {!!value === true ? value : "empty"}
     </>
   );
 }
