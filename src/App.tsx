@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { People, ListOfPeople, api } from "./service";
+import { Input } from "./components";
 
 function App() {
   const [listOfPeople, setListOfPeople] = useState<ListOfPeople[]>([]);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     api("https://swapi.dev/api/people/").then((response) => {
@@ -13,7 +15,11 @@ function App() {
   }, []);
 
   return (
-    <>{listOfPeople.length > 0 ? JSON.stringify(listOfPeople) : "Loading!"}</>
+    <>
+      {listOfPeople.length > 0 ? "Loaded" : "Loading!"}
+      <Input className="color: red" value={value} onChange={setValue} />
+      {!!value === true ? value : "empty"}
+    </>
   );
 }
 
