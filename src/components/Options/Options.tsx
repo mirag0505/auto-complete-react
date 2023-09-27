@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import "./ListOfValue.css";
+import "./Options.css";
 import { ListOfPeople } from "../../service";
 
 type Props = {

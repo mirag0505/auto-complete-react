@@ -8,12 +8,12 @@ type Props = {
   value: string;
   onChange: (value: string) => void;
   className?: string;
-  ListOfValue: ListOfPeople[];
+  listOfValue: ListOfPeople[];
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Select = forwardRef<HTMLInputElement, Props>(
   (
-    { className, value, onChange, ListOfValue, ...restInputProps },
+    { className, value, onChange, listOfValue, ...restInputProps },
     forwardedRef
   ) => {
     // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +29,7 @@ export const Select = forwardRef<HTMLInputElement, Props>(
           {...restInputProps}
         />
 
-        <Options options={ListOfValue} />
+        <Options options={listOfValue} />
       </div>
     );
   }
