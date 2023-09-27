@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { People, ListOfPeople, api } from "./service";
-import { Input } from "./components";
+import { Select } from "./components";
 
 function App() {
   const [listOfPeople, setListOfPeople] = useState<ListOfPeople[]>([]);
@@ -17,7 +17,14 @@ function App() {
   return (
     <>
       {listOfPeople.length > 0 ? "Loaded" : "Loading!"}
-      <Input className="input" value={value} onChange={setValue} />
+      {listOfPeople.length > 0 && (
+        <Select
+          className="select"
+          value={value}
+          onChange={setValue}
+          listOfValue={listOfPeople}
+        />
+      )}
       {!!value === true ? value : "empty"}
     </>
   );

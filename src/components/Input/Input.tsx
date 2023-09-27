@@ -4,7 +4,7 @@ import "./Input.css";
 type Props = {
   value: string;
   onChange: (value: string) => void;
-  className: string;
+  className?: string;
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Input = forwardRef<HTMLInputElement, Props>(
