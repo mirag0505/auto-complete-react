@@ -17,8 +17,13 @@ export const Select = forwardRef<HTMLInputElement, Props>(
 
     const handleChange = (value: string) => {
       onChange(value);
-      //   forwardedRef?.current?.focus();
     };
+
+    const filterList = (list: ListOfPeople[]) =>
+      list.filter((optionValue) => {
+        if (optionValue.name.toLowerCase().includes(value.toLocaleLowerCase()))
+          return optionValue;
+      });
 
     return (
       <div className="select">
@@ -29,7 +34,7 @@ export const Select = forwardRef<HTMLInputElement, Props>(
           {...restInputProps}
         />
 
-        <Options options={listOfValue} />
+        <Options options={filterList(listOfValue)} value={value} />
       </div>
     );
   }
