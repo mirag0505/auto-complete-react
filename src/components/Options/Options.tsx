@@ -3,18 +3,18 @@ import "./ListOfValue.css";
 import { ListOfPeople } from "../../service";
 
 type Props = {
-  list: ListOfPeople[];
+  options: ListOfPeople[];
   className?: string;
 };
 
-export const ListOfValue = ({ className, list }: Props) => {
+export const Options = ({ className, options }: Props) => {
   // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
   //   onChange(e.target.value);
   // };
 
   return (
     <ul className={className}>
-      {list.map((val) => (
+      {options.map((val) => (
         <li key={val.name}>{val.name}</li>
       ))}
     </ul>

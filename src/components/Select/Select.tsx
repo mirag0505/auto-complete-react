@@ -1,7 +1,6 @@
 import { HTMLAttributes, forwardRef } from "react";
 import "./Select.css";
-import { Input } from "..";
-import { ListOfValue } from "../ListOfValue/ListOfValue";
+import { Input, Options } from "..";
 import { ListOfPeople } from "../../service";
 //TODO add alias
 
@@ -13,7 +12,10 @@ type Props = {
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Select = forwardRef<HTMLInputElement, Props>(
-  ({ className, value, onChange, ...restInputProps }, forwardedRef) => {
+  (
+    { className, value, onChange, ListOfValue, ...restInputProps },
+    forwardedRef
+  ) => {
     // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     //   onChange(e.target.value);
     // };
@@ -27,7 +29,7 @@ export const Select = forwardRef<HTMLInputElement, Props>(
           {...restInputProps}
         />
 
-        <ListOfValue list={ListOfValue} />
+        <Options options={ListOfValue} />
       </div>
     );
   }
