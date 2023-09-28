@@ -1,10 +1,4 @@
-import {
-  ChangeEvent,
-  HTMLAttributes,
-  forwardRef,
-  useEffect,
-  useRef,
-} from "react";
+import { HTMLAttributes, forwardRef } from "react";
 import "./Select.css";
 import { Input, Options } from "..";
 import { ListOfPeople } from "../../service";
@@ -15,21 +9,19 @@ type Props = {
   onChange: (value: string) => void;
   className?: string;
   listOfValue: ListOfPeople[];
+  isLoading: boolean;
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Select = forwardRef<HTMLInputElement, Props>(
-  ({ value, onChange, listOfValue, ...restInputProps }, forwardedRef) => {
+  (
+    { value, onChange, listOfValue, isLoading, ...restInputProps },
+    forwardedRef
+  ) => {
     // const inputRef = useRef<HTMLInputElement>(null)
 
     const handleChange = (value: string) => {
       onChange(value);
     };
-
-    const filterList = (list: ListOfPeople[]) =>
-      list.filter((optionValue) => {
-        if (optionValue.name.toLowerCase().includes(value.toLocaleLowerCase()))
-          return optionValue;
-      });
 
     return (
       <div className="select">
@@ -41,9 +33,10 @@ export const Select = forwardRef<HTMLInputElement, Props>(
         />
 
         <Options
-          options={filterList(listOfValue)}
+          options={listOfValue}
           value={value}
           onClick={handleChange}
+          isLoading={isLoading}
         />
       </div>
     );

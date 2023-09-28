@@ -7,9 +7,10 @@ type Props = {
   value: string;
   className?: string;
   onClick: (value: string) => void;
+  isLoading: boolean;
 };
 
-export const Options = ({ options, value = "", onClick }: Props) => {
+export const Options = ({ options, value = "", onClick, isLoading }: Props) => {
   // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
   //   onChange(e.target.value);
   // };
@@ -17,15 +18,18 @@ export const Options = ({ options, value = "", onClick }: Props) => {
   return (
     <div className="options">
       <ul>
-        {options.map((val) => (
-          <li
-            key={val.name}
-            onClick={() => {
-              onClick(val.name);
-            }}>
-            <Highlighted text={val.name} highlight={value} />
-          </li>
-        ))}
+        {isLoading
+          ? "Loading..."
+          : options?.map((val) => (
+              <li
+                key={val.name}
+                onClick={() => {
+                  onClick(val.name);
+                }}>
+                <Highlighted text={val.name} highlight={value} />
+              </li>
+            ))}
+        {!isLoading && options.length === 0 && "Not found"}
       </ul>
     </div>
   );

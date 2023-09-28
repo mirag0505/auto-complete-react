@@ -6,21 +6,28 @@ import { Select } from "./components";
 function App() {
   const [listOfPeople, setListOfPeople] = useState<ListOfPeople[]>([]);
   const [value, setValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    api("https://swapi.dev/api/people/").then((response) => {
-      const responseData = response as People;
-      responseData && setListOfPeople(responseData.results);
-    });
-  }, []);
+    const getData = setTimeout(() => {
+      setIsLoading(true);
+      api(`https://swapi.dev/api/people/?search=${value}`).then((response) => {
+        const responseData = response as People;
+        responseData && setListOfPeople(responseData.results);
+        setIsLoading(false);
+      });
+    }, 1500);
+
+    return () => clearTimeout(getData);
+  }, [value]);
 
   return (
-    <>
-      {listOfPeople.length > 0 ? "Loaded" : "Loading..."}
-      {listOfPeople.length > 0 && (
-        <Select value={value} onChange={setValue} listOfValue={listOfPeople} />
-      )}
-    </>
+    <Select
+      value={value}
+      onChange={setValue}
+      listOfValue={listOfPeople}
+      isLoading={isLoading}
+    />
   );
 }
 
