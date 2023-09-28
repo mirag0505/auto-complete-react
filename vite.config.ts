@@ -12,6 +12,7 @@ export default defineConfig({
     setupFiles: ["./setupTests.ts"],
     css: true,
   },
+  base: "/auto-complete-react/",
 });
 
 //https://github.com/testing-library/jest-dom/issues/439#issuecomment-1715184115
