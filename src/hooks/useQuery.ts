@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { People, api } from "../service";
 
-export function useQuery(url: string, filterValue: string) {
+export function useQuery<T>(url: string, filterValue: string) {
   const [data, setData] = useState<T>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>();
@@ -17,7 +17,7 @@ export function useQuery(url: string, filterValue: string) {
     }, 1500);
 
     return () => clearTimeout(getData);
-  });
+  }, [filterValue, url]);
 
   return { isLoading, data, error };
 }
