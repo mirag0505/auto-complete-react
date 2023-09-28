@@ -13,3 +13,5 @@ export default defineConfig({
     css: true,
   },
 });
+
+//https://github.com/testing-library/jest-dom/issues/439#issuecomment-1715184115

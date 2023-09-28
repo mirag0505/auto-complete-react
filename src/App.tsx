@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      Sky
+      Pick your favorite characte:
       <Select
         value={value}
         onChange={setValue}

@@ -4,7 +4,7 @@ import { api } from "../service";
 export function useQuery<T>(url: string, filterValue?: string) {
   const [data, setData] = useState<T>();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     // use setTimeout like simple debounce

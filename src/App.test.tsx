@@ -7,10 +7,10 @@ describe("Render App component", () => {
   it("the title is visible", () => {
     render(<App />);
 
-    const welcomeText = screen.getByText(/Sky/i);
+    const welcomeText = screen.getByText(/Pick/i);
 
     screen.debug(welcomeText);
 
-    expect(screen.getByText(/Sky/i)).toBeInTheDocument();
+    expect(screen.getByText(/Pick/i)).toBeInTheDocument();
   });
 });
