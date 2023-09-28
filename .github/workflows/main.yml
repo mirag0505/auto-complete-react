@@ -17,6 +17,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          pnpm install --frozen-lockfile
           pnpm ci
 
       - name: Deploy 🚀
