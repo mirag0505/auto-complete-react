@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from "@testing-library/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Select } from "./Select";
 import { ListOfPeople } from "../../service";
 
