@@ -17,3 +17,9 @@ pnpm dev
 ```
 pnpm test
 ```
+
+## Run build
+
+```
+pnpm ci
+```
