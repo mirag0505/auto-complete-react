@@ -7,3 +7,7 @@
   color: black;
   top: 30px;
 }
+
+.error {
+  color: red;
+}

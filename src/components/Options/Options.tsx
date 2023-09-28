@@ -8,9 +8,16 @@ type Props = {
   className?: string;
   onClick: (value: string) => void;
   isLoading: boolean;
+  error?: string;
 };
 
-export const Options = ({ options, value = "", onClick, isLoading }: Props) => {
+export const Options = ({
+  options,
+  error,
+  value = "",
+  onClick,
+  isLoading,
+}: Props) => {
   return (
     <div className="options">
       <ul>
@@ -25,7 +32,8 @@ export const Options = ({ options, value = "", onClick, isLoading }: Props) => {
                 <Highlighted text={val.name} highlight={value} />
               </li>
             ))}
-        {!isLoading && options?.length === 0 && "Not found"}
+        {!isLoading && options?.length === 0 && <div>Not found</div>}
+        {!isLoading && error ? <div className="error">{error}</div> : null}
       </ul>
     </div>
   );

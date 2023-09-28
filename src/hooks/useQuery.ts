@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { People, api } from "../service";
+import { api } from "../service";
 
 export function useQuery<T>(url: string, filterValue: string) {
   const [data, setData] = useState<T>();
@@ -9,11 +9,21 @@ export function useQuery<T>(url: string, filterValue: string) {
   useEffect(() => {
     const getData = setTimeout(() => {
       setIsLoading(true);
-      api(`${url}?search=${filterValue}`).then((response) => {
-        const responseData = response as People;
-        responseData && setData(responseData.results);
-        setIsLoading(false);
-      });
+
+      api(url)
+        .then((response) => {
+          response && setData(response as T);
+        })
+        .catch((e) => {
+          if (e instanceof Error) {
+            setError(e?.message);
+          } else {
+            setError("An unknown error occurred");
+          }
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }, 1500);
 
     return () => clearTimeout(getData);

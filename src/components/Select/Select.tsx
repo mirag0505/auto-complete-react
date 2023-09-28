@@ -10,15 +10,14 @@ type Props = {
   className?: string;
   listOfValue: ListOfPeople[];
   isLoading: boolean;
+  error?: string;
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Select = forwardRef<HTMLInputElement, Props>(
   (
-    { value, onChange, listOfValue, isLoading, ...restInputProps },
+    { value, onChange, listOfValue, isLoading, error, ...restInputProps },
     forwardedRef
   ) => {
-    // const inputRef = useRef<HTMLInputElement>(null)
-
     const handleChange = (value: string) => {
       onChange(value);
     };
@@ -37,6 +36,7 @@ export const Select = forwardRef<HTMLInputElement, Props>(
           value={value}
           onClick={handleChange}
           isLoading={isLoading}
+          error={error}
         />
       </div>
     );

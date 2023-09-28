@@ -24,13 +24,19 @@ export type ListOfPeople = {
   url: string;
 };
 
-// https://swapi.dev/api/people/
+const generalEnpoint = "https://swapi.dev/api/";
 
-export async function api<T>(url: string): Promise<T> {
-  return fetch(url).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    return response.json() as Promise<T>;
-  });
+export const getPeople = (filterValue: string) => {
+  return `${generalEnpoint}people/?search=${filterValue}`;
+};
+
+export async function api<T>(url: string): Promise<T | Error | string> {
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json() as Promise<T>;
+    })
+    .catch((e: Error | string) => e);
 }
