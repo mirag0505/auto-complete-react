@@ -10,13 +10,16 @@ function App() {
   const { isLoading, data, error } = useQuery<People>(url, value);
 
   return (
-    <Select
-      value={value}
-      onChange={setValue}
-      listOfValue={data ? data.results : []}
-      isLoading={isLoading}
-      error={error}
-    />
+    <>
+      Sky
+      <Select
+        value={value}
+        onChange={setValue}
+        listOfValue={data ? data.results : []}
+        isLoading={isLoading}
+        error={error}
+      />
+    </>
   );
 }
 
