@@ -1,4 +1,4 @@
-import { ChangeEvent, HTMLAttributes, forwardRef } from "react";
+import { ChangeEvent, HTMLAttributes, forwardRef, useState } from "react";
 import "./Input.css";
 
 type Props = {
@@ -8,16 +8,30 @@ type Props = {
 } & Omit<HTMLAttributes<HTMLInputElement>, "onChange">;
 
 export const Input = forwardRef<HTMLInputElement, Props>(
-  ({ onChange, ...restInputProps }, forwardedRef) => {
+  ({ value, onChange, ...restInputProps }, forwardedRef) => {
+    const [opened, setOpened] = useState(false);
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       onChange(e.target.value);
     };
 
+    const handleInputFocus = () => {
+      setOpened(true);
+    };
+
+    const handleInputBlur = () => {
+      setTimeout(() => {
+        setOpened(false);
+      }, 200);
+    };
+
     return (
       <input
+        value={value}
         ref={forwardedRef}
         onChange={handleChange}
-        className={"input"}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
+        className={["input", opened === true ? "focus" : ""].join(" ")}
         {...restInputProps}
       />
     );

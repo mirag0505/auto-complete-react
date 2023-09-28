@@ -17,7 +17,6 @@ function App() {
   return (
     <>
       {listOfPeople.length > 0 ? "Loaded" : "Loading..."}
-      {/* {!!value === true ? value : "empty"} */}
       {listOfPeople.length > 0 && (
         <Select value={value} onChange={setValue} listOfValue={listOfPeople} />
       )}

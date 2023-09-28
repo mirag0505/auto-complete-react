@@ -1,4 +1,10 @@
-import { ChangeEvent, HTMLAttributes, forwardRef, useRef } from "react";
+import {
+  ChangeEvent,
+  HTMLAttributes,
+  forwardRef,
+  useEffect,
+  useRef,
+} from "react";
 import "./Select.css";
 import { Input, Options } from "..";
 import { ListOfPeople } from "../../service";
@@ -13,7 +19,7 @@ type Props = {
 
 export const Select = forwardRef<HTMLInputElement, Props>(
   ({ value, onChange, listOfValue, ...restInputProps }, forwardedRef) => {
-    // const inputRef = useRef<HTMLInputElement>(null);
+    // const inputRef = useRef<HTMLInputElement>(null)
 
     const handleChange = (value: string) => {
       onChange(value);
@@ -34,7 +40,11 @@ export const Select = forwardRef<HTMLInputElement, Props>(
           {...restInputProps}
         />
 
-        <Options options={filterList(listOfValue)} value={value} />
+        <Options
+          options={filterList(listOfValue)}
+          value={value}
+          onClick={handleChange}
+        />
       </div>
     );
   }
