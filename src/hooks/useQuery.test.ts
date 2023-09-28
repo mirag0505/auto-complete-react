@@ -1,9 +1,8 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 import { useQuery } from "./useQuery";
-import { People, api } from "../service"; // Путь к вашей функции api
+import { People, api } from "../service";
 import { Mock, vi } from "vitest";
 
-// Мокаем вашу функцию api
 vi.mock("../service", () => ({
   api: vi.fn(),
 }));
