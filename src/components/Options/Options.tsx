@@ -11,10 +11,6 @@ type Props = {
 };
 
 export const Options = ({ options, value = "", onClick, isLoading }: Props) => {
-  // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //   onChange(e.target.value);
-  // };
-
   return (
     <div className="options">
       <ul>
@@ -29,7 +25,7 @@ export const Options = ({ options, value = "", onClick, isLoading }: Props) => {
                 <Highlighted text={val.name} highlight={value} />
               </li>
             ))}
-        {!isLoading && options.length === 0 && "Not found"}
+        {!isLoading && options?.length === 0 && "Not found"}
       </ul>
     </div>
   );
