@@ -19,6 +19,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
     };
 
     const handleInputBlur = () => {
+      // the best variant use Portal or event delegation
       setTimeout(() => {
         setOpened(false);
       }, 200);
