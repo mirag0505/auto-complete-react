@@ -1,11 +1,7 @@
 1. What is the difference between Component and PureComponent? Give
 an example where it might break my app.
 
-**Component** and **PureComponent**: These classes are only used in class components.
-
-Component doesn't implements **shouldComponentUpdate** method and component re-renders by default whenever setState is called or the parent component re-renders.
-
-**PureComponent** has implement **shouldComponentUpdate** and that does a shallow comparison of state and props.
+**Component** and **PureComponent**: These classes are only used in class components.**Component** doesn't implements **shouldComponentUpdate** method and component re-renders by default whenever setState is called or the parent component re-renders. **PureComponent** has implement **shouldComponentUpdate** and that does a shallow comparison of state and props.
 
 // it will not be checked by the shallow comparison algorithm
 
@@ -56,9 +52,9 @@ A fragment is a syntax for returning multiple elements without wrapping them int
 
 6. Give 3 examples of the HOC pattern.
 
-a. withLogger
-b. withErrorHandling
-c. withLoading
+a. withLogger;
+b. withErrorHandling;
+c. withLoading.
 
 ```typescriptreact
 function withLoading(WrappedComponent) {
@@ -87,18 +83,18 @@ There are two arguments to **setState**: the update function and the callback. *
 
 9. List the steps needed to migrate a Class to Function Component.
 
-a. **Class signatures** should be replaced with **function signatures**
-b. **PureComponents** should be replaced with memo()
-c. **Constructor state** initialization should be replaced with **UseState hook**
-d. **Lifecycle methods** should be replaced with **useEffect hook(s)**
-e. Your functional component should be the body of the **render() method**
+a. **Class signatures** should be replaced with **function signatures**;
+b. **PureComponents** should be replaced with memo();
+c. **Constructor state** initialization should be replaced with **UseState hook**;
+d. **Lifecycle methods** should be replaced with **useEffect hook(s)**;
+e. Your functional component should be the body of the **render() method**.
 
 10. List a few ways styles can be used with components.
 
-a. inline styles
-b. css/scss/less
-c. css in js
-d. css modules
+a. inline styles;
+b. css/scss/less;
+c. css in js;
+d. css modules.
 
 11. How to render an HTML string coming from the server.
 
