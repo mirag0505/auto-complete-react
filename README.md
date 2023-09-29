@@ -54,3 +54,4 @@ This project can be improved:
 Otherwise, it's faster to trigger closing a component with options than usingState. It is better to rewrite this method using Portal or add an event delegation and track when clicks are not on this element.
 
 5. Add a more sophisticated debaunce, put it in a separate hook.
+6. Rewrite a component that accepts a collection of objects so that it does not depend on a specific type, but uses generics, and it requires a specific signature

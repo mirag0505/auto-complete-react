@@ -35,7 +35,7 @@ describe("Input component", () => {
     fireEvent.blur(input);
 
     // This is a hack need, because in component Input, I use similar delay method
-    // TODO remove it, after will change Imput to correct way
+    // remove it, after will change Imput to correct way
 
     setTimeout(() => {
       rerender(<Input value="" onChange={() => {}} />);

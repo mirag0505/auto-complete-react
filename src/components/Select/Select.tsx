@@ -2,7 +2,6 @@ import { HTMLAttributes, forwardRef } from "react";
 import "./Select.css";
 import { Input, Options } from "..";
 import { ListOfPeople } from "../../service";
-//TODO add alias
 
 type Props = {
   value: string;

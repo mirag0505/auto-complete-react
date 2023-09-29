@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      Pick your favorite characte:
+      Pick your favorite character:
       <Select
         value={value}
         onChange={setValue}

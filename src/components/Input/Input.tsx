@@ -32,7 +32,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
         onChange={handleChange}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        className={["input", opened === true ? "focus" : ""].join(" ")}
+        className={["input", opened ? "focus" : ""].join(" ")}
         {...restInputProps}
       />
     );
