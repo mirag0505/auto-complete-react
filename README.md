@@ -23,16 +23,17 @@ pnpm ci
 
 The App consists:
 
--- components
----- Select
----- Options
----- Input
----- Highlighted
+components:
+  Select
+  Options
+  Input
+  Highlighted
 
--- hooks
-----useQuery
+hooks:
+  useQuery
 
--- service -- api methods
+service:
+  api methods
 
 This project can be improved:
 1. You can create a wrapper for the select and useQuery component, in our project, such a thing we called a container, where you plug in both silly components and components/hooks that have side effects;
