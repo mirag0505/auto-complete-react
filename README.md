@@ -29,5 +29,5 @@ pnpm ci
 
 The App consists:
 
-Fetch ==> useQuery ==> Select --> Options -> Highlighted
-                              --> Input
+Fetch => useQuery => Select -> Options -> Highlighted
+                                       -> Input

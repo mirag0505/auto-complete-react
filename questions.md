@@ -1,14 +1,15 @@
 1. What is the difference between Component and PureComponent? Give
 an example where it might break my app.
 
-**Component** and **PureComponent**: These classes are only used in class components. 
+**Component** and **PureComponent**: These classes are only used in class components.
 
-Component doesn't implements **shouldComponentUpdate** method and component re-renders by default whenever setState is called or the parent component re-renders. 
+Component doesn't implements **shouldComponentUpdate** method and component re-renders by default whenever setState is called or the parent component re-renders.
 
 **PureComponent** has implement **shouldComponentUpdate** and that does a shallow comparison of state and props.
 
 // it will not be checked by the shallow comparison algorithm
-```
+
+```typescriptreact
 class MyPureComponent extends PureComponent {
   render() {
     return (
@@ -19,7 +20,8 @@ class MyPureComponent extends PureComponent {
 ```
 
 // here, each render will create a new function
-```
+
+```typescriptreact
 class MyComponent extends Component {
   render() {
     return (
@@ -30,6 +32,7 @@ class MyComponent extends Component {
   }
 }
 ```
+
 2. Context + ShouldComponentUpdate might be dangerous. Why is that?
 
 **ShouldComponentUpdate** checks only props and state, but context value changes will trigger redraws anyway.
@@ -57,7 +60,7 @@ a. withLogger
 b. withErrorHandling
 c. withLoading
 
-```
+```typescriptreact
 function withLoading(WrappedComponent) {
   return function(props) {
     if (props.isLoading) {
@@ -100,6 +103,7 @@ d. css modules
 11. How to render an HTML string coming from the server.
 
 You can use a 3rd party HTML parser or **dangerouslySetInnerHTML** attribute to:
-```
+
+```typescriptreact
 <span dangerouslySetInnerHTML={{ __html: "<b>some text</b>" }} />
 ```
