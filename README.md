@@ -1,4 +1,7 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite (auto-complete-component)
+
+Link: gitpages
+<https://mirag0505.github.io/auto-complete-react/>
 
 ## Dependency installation
 
@@ -23,3 +26,8 @@ pnpm test
 ```
 pnpm ci
 ```
+
+The App consists:
+
+Fetch ==> useQuery ==> Select --> Options -> Highlighted
+                              --> Input
